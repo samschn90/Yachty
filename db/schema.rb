@@ -21,7 +21,7 @@ ActiveRecord::Schema[7.0].define(version: 2023_02_04_160837) do
     t.bigint "yacht_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.integer "availability"
+    t.integer "availability", default: 0
     t.index ["user_id"], name: "index_bookings_on_user_id"
     t.index ["yacht_id"], name: "index_bookings_on_yacht_id"
   end
