@@ -1,0 +1,3 @@
+<% @yachts.each do |yacht| %>
+  <h2><%= link_to "#{yacht.title}", yacht_path(yacht) %></h2>
+<% end %>
