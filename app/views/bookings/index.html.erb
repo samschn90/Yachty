@@ -1,3 +1,10 @@
 <h1>All Bookings</h1>
-<%= @bookings %>
-<%= %>
+<ul>
+  <% @bookings.each do |booking| %>
+    <li><%= booking.yacht %></li>
+    <li><%= booking.date %></li>
+    <li><%= booking.user %></li>
+    <%= button_to "Accept" %>
+    <%= button_to "Decline" %>
+  <% end %>
+</ul>
