@@ -24,11 +24,20 @@ i = 0
   )
   user.save!
   puts "Creating user's Yacht"
-  Yacht.create(
+  yacht = Yacht.create(
     name: Faker::Music.mambo_no_5,
-    length: Faker::Number.within(range: 2.0..30.0), description: Faker::Quote.robin,
-    price: Faker::Number.within(range: 50.0..5000000.0),
+    length: Faker::Number.within(range: 2..30), description: Faker::Quote.robin,
+    price: Faker::Number.within(range: 50..5000000),
     user: user
+  )
+  yacht.save!
+
+  puts "Creating a booking"
+  Booking.create(
+    start_time: Faker::Date.between(from: '2023-06-01', to: '2023-07-01'),
+    end_time: Faker::Date.between(from: '2023-07-02', to: '2023-11-01'),
+    user: user,
+    yacht: yacht
   ).save!
   i += 1
 end
