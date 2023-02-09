@@ -44,6 +44,6 @@ class YachtsController < ApplicationController
   end
 
   def yacht_params
-    params.require(:yacht).permit(:title, :name, :length, :description, :type, :price)
+    params.require(:yacht).permit(:title, :name, :length, :description, :category, :price, :photo)
   end
 end
