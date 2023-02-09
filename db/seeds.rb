@@ -18,8 +18,8 @@ i = 0
   puts "Creating user #{i}"
   user = User.new(
     email: "#{i}@gmail.com",
-    first_name: "name",
-    last_name: "lastname",
+    first_name: Faker::TvShows::TwinPeaks.character,
+    last_name: Faker::Artist.name,
     password: "123456"
   )
   user.save!
