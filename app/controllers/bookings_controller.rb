@@ -1,5 +1,6 @@
 class BookingsController < ApplicationController
-  before_action :set_restaurant, only: %w[show edit update destroy]
+  before_action :set_booking, only: %w[show edit update destroy]
+  before_action :authenticate_user!
 
   def index
     @bookings = Booking.all
