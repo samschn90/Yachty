@@ -6,14 +6,15 @@ class YachtsController < ApplicationController
     @yachts = Yacht.all
     @markers = @yachts.geocoded.map do |yacht|
       {
-        lat: yacht.latitude,
-        lng: yacht.longitude,
+        latitude: yacht.latitude,
+        longitude: yacht.longitude,
         info_window_html: render_to_string(partial: "info_window", locals: {yacht: yacht})
       }
     end
   end
 
   def show
+    @yachts = Yacht.all
   end
 
   def new
