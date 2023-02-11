@@ -2,9 +2,13 @@
   <%= f.input :title %>
   <%= f.input :name %>
   <%= f.input :length %>
-  <%= f.input :category, :collection => ["1 - Sailyacht", "2 - Motoryacht", "3 - Hybridyacht", "4 - Flyingyacht"] %>
+  <%= f.input :category, :collection => ["Sailyacht", "Motoryacht", "Hybridyacht", "Flyingyacht", "Other"] %>
   <%= f.input :description %>
   <%= f.input :price %>
+  <%= f.input :address,
+    input_html: {data: {address_autocomplete_target: "address"}, class: "d-none"},
+    wrapper_html: {data: {controller: "address-autocomplete", address_autocomplete_api_key_value: ENV["MAPBOX_API_KEY"]}}
+  %>
   <%= f.input :photo, as: :file %>
   <%= f.submit %>
 <% end %>

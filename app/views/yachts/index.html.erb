@@ -1,3 +1,8 @@
 <% @yachts.each do |yacht| %>
-  <h2><%= link_to "#{yacht.title}", yacht_path(yacht) %></h2>
+  <div class="card-product">
+    <%= cl_image_tag yacht.photo.key %>
+      <div class="card-product-infos">
+        <h2><%= link_to "#{yacht.title}", yacht_path(yacht) %></h2>
+      </div>
+  </div>
 <% end %>

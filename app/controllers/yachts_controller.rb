@@ -4,9 +4,17 @@ class YachtsController < ApplicationController
 
   def index
     @yachts = Yacht.all
+    @markers = @yachts.geocoded.map do |yacht|
+      {
+        latitude: yacht.latitude,
+        longitude: yacht.longitude,
+        info_window_html: render_to_string(partial: "info_window", locals: {yacht: yacht})
+      }
+    end
   end
 
   def show
+    @yachts = Yacht.all
   end
 
   def new
@@ -44,6 +52,6 @@ class YachtsController < ApplicationController
   end
 
   def yacht_params
-    params.require(:yacht).permit(:title, :name, :length, :description, :category, :price, :photo)
+    params.require(:yacht).permit(:title, :name, :length, :description, :category, :price, :photo, :address)
   end
 end
