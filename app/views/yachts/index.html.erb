@@ -1,12 +1,10 @@
 <% @yachts.each do |yacht| %>
   <div class="card-product">
-
-
-  <% unless yacht.photo.key %>
-    <%= cl_image_tag yacht.photo.key %>
-      <div class="card-product-infos">
-        <h2><%= link_to "#{yacht.title}", yacht_path(yacht) %></h2>
-      </div>
+    <% unless yacht.photo.key == nil %>
+      <%= cl_image_tag yacht.photo.key %>
+    <% end %>
+    <div class="card-product-infos">
+      <h2><%= link_to "#{yacht.title}", yacht_path(yacht) %></h2>
     </div>
-  <% end %>
+  </div>
 <% end %>
