@@ -1,0 +1,17 @@
+<%= simple_form_for @booking do |f| %>
+  <%= f.input :start_time %>
+  <%= f.input :end_time %>
+<% end %>
+
+
+
+
+#t.date "start_time"
+    t.date "end_time"
+    t.bigint "user_id", null: false
+    t.bigint "yacht_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.integer "availability"
+    t.index ["user_id"], name: "index_bookings_on_user_id"
+    t.index ["yacht_id"], name: "index_bookings_on_yacht_id"

@@ -17,7 +17,16 @@ class BookingsController < ApplicationController
   end
 
   def new
-    @booking = Booking.new
+    @yacht = Yacht.find(params[:yacht_id])
+    start_time =[:start_time]
+    end_time = params[:end_time]
+
+    if @yacht.available?(start_time, end_time)
+      @booking = Booking.new(start_time: start_time, end_time: end_time)
+    else
+      flash[:error] = "Sorry mate, your fancy flashy yacht is not available during that time."
+      redirect_to yachts_path
+    end
   end
 
   def edit
