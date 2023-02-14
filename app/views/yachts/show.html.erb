@@ -1,14 +1,25 @@
-<h2><%= @yacht.title %></h2>
-<h2><%= @yacht.name %></h2>
-<p><%= @yacht.description %></p>
-<p><%= @yacht.category %></p>
-<p><%= @yacht.length %> m</p>
-<p><%= @yacht.price %></p>
+<div class=container>
+  <h2><%= @yacht.title %></h2>
+  <h2><%= @yacht.name %></h2>
+  <p><%= @yacht.description %></p>
+  <p><%= @yacht.category %></p>
+  <p><%= @yacht.length %> m</p>
+  <p><%= @yacht.price %></p>
+  <% unless @yacht.photo.key == nil %>
+    <%= cl_image_tag @yacht.photo.key, height: 300, width: 400, crop: :fill %>
+  <% end %>
+  <div style="width: 100%; height: 600px;"
+    data-controller="map"
+    data-map-marker-value="<%= @yacht.to_json %>"
+    data-map-markers-value="<%= @yachts.to_json %>"
+    data-map-api-key-value="<%= ENV['MAPBOX_API_KEY'] %>">
+  </div>
 
-<%= cl_image_tag @yacht.photo.key, height: 300, width: 400, crop: :fill %>
+  <% if current_user == @yacht.user %>
+    <%= link_to "Edit yacht", edit_yacht_path, class: "btn btn-gradient" %>
+  <% end %>
 
-<div style="width: 100%; height: 600px;"
-  data-controller="map"
-  data-map-markers-value="<%= @yachts.to_json %>"
-  data-map-api-key-value="<%= ENV['MAPBOX_API_KEY'] %>">
+  <% unless current_user == @yacht.user %>
+    <%= link_to "Book now", new_booking_path(@yacht), class: "btn btn-gradient" %>
+  <% end %>
 </div>
