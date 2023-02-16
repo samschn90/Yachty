@@ -1,14 +1,14 @@
-<% @yachts.each do |yacht| %>
-  <%= link_to yacht_path(yacht) do %>
-    <div class="card-product">
-      <% unless yacht.photo.key == nil %>
-        <%= cl_image_tag yacht.photo.key %>
-      <% end %>
-      <div class="card-product-infos">
-        <h2><%= yacht.name %></h2>
+<div class="container">
+  <% @yachts.each do |yacht| %>
+    <%= link_to yacht_path(yacht) do %>
+      <div class="card-product">
+        <div class="card-product-infos">
+          <h2><%= yacht.name %></h2>
+        </div>
+        <% unless yacht.photo.key == nil %>
+          <%= cl_image_tag yacht.photo.key %>
+        <% end %>
       </div>
-    </div>
+    <% end %>
   <% end %>
-<% end %>
-
-<%= link_to "List my yacht", new_yacht_path, class: "btn btn-gradient" %>
+</div>

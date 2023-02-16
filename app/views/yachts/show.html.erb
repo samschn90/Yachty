@@ -1,25 +1,27 @@
-<div class=container>
-  <h2><%= @yacht.title %></h2>
-  <h2><%= @yacht.name %></h2>
-  <p><%= @yacht.description %></p>
-  <p><%= @yacht.category %></p>
-  <p><%= @yacht.length %> m</p>
-  <p><%= @yacht.price %></p>
+<div class="card">
+  <h2 class="card-title"><%= @yacht.title %></h2>
+  <h3 class="card-subtitle mb-2 text-muted"><%= @yacht.name %></h3>
   <% unless @yacht.photo.key == nil %>
-    <%= cl_image_tag @yacht.photo.key, height: 300, width: 400, crop: :fill %>
+    <%= cl_image_tag @yacht.photo.key, class: "card-img-top", height: 300, width: 400, crop: :fill %>
   <% end %>
-  <div style="width: 100%; height: 600px;"
-    data-controller="map"
-    data-map-marker-value="<%= @yacht.to_json %>"
-    data-map-markers-value="<%= @yachts.to_json %>"
-    data-map-api-key-value="<%= ENV['MAPBOX_API_KEY'] %>">
+  <div class="card-body">
+    <p class="card-text"><%= @yacht.description %></p>
+    <ul class="list-group list-group-flush">
+      <li class="list-group-item"><strong>Length:</strong> <%= @yacht.length %> m</li>
+      <li class="list-group-item"><strong>Price:</strong> <%= @yacht.price %> €</li>
+      <li class="list-group-item"><strong>Category:</strong> <%= @yacht.category %></li>
+    </ul>
+    <div style="height: 300px; width: 100%"
+      data-controller="map"
+      data-map-marker-value="<%= @yacht.to_json %>"
+      data-map-markers-value="<%= @yachts.to_json %>"
+      data-map-api-key-value="<%= ENV['MAPBOX_API_KEY'] %>">
+    </div>
+    <% if current_user == @yacht.user %>
+      <%= link_to "Edit yacht", edit_yacht_path, class: "btn btn-primary" %>
+    <% end %>
+    <% unless current_user == @yacht.user %>
+      <%= link_to "Book now", new_booking_path(@yacht), class: "btn btn-primary" %>
+    <% end %>
   </div>
-
-  <% if current_user == @yacht.user %>
-    <%= link_to "Edit yacht", edit_yacht_path, class: "btn btn-gradient" %>
-  <% end %>
-
-  <% unless current_user == @yacht.user %>
-    <%= link_to "Book now", new_booking_path(@yacht), class: "btn btn-gradient" %>
-  <% end %>
 </div>
