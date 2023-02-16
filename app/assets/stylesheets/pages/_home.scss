@@ -1,1 +1,38 @@
 // Specific CSS for your home-page
+.home-container {
+  background-image: url('https://imageio.forbes.com/specials-images/imageserve/5e0926a94e291700061a0e51/The-751-foot-long-superyacht-concept-Valkyrie-underway-/0x0.jpg?format=jpg&crop=944,542,x307,y318,safe&width=960');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  height: 600px;
+}
+
+.container {
+  width: 100%;
+  max-width: 960px;
+  margin: 0 auto;
+  text-align: center;
+}
+
+.header, .sub-header {
+  margin-top: 40px;
+  margin-bottom: 40px;
+}
+
+@media (max-width: 768px) {
+  .header, .sub-header {
+    margin-top: 20px;
+    margin-bottom: 20px;
+  }
+}
+
+.button-container {
+  max-width: 960px;
+  margin: 0 auto;
+}
+
+.buttons {
+  display: flex;
+  justify-content: center;
+  width: 100%;
+}
