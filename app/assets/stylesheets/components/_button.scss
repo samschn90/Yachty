@@ -30,9 +30,9 @@
   padding: 8px 24px;
   border-radius: 4px;
   font-weight: bold;
-  background: linear-gradient(#167FFB, #0F60C4);
+  background: linear-gradient(#0F084B, #0F084B);
   transition: background 0.3s ease;
-  border: 1px solid #0F60C4;
+  border: 1px solid #0F084B;
   margin: 10px;
   flex: 1 0 25%;
   text-align: center;
@@ -40,6 +40,6 @@
 }
 
 .btn-gradient:hover {
-  background: linear-gradient(#147EFF, #0F67DA);
+  background: linear-gradient(#150b72, #150b72);
   color: white;
 }
