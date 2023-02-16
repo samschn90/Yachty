@@ -11,17 +11,17 @@
       <li class="list-group-item"><strong>Price:</strong> <%= @yacht.price %> €</li>
       <li class="list-group-item"><strong>Category:</strong> <%= @yacht.category %></li>
     </ul>
-    <div style="height: 300px; width: 100%"
+    <div style="height: 300px;"
       data-controller="map"
       data-map-marker-value="<%= @yacht.to_json %>"
       data-map-markers-value="<%= @yachts.to_json %>"
       data-map-api-key-value="<%= ENV['MAPBOX_API_KEY'] %>">
     </div>
     <% if current_user == @yacht.user %>
-      <%= link_to "Edit yacht", edit_yacht_path, class: "btn btn-primary" %>
+      <%= link_to "Edit yacht", edit_yacht_path, class: "btn-gradient" %>
     <% end %>
     <% unless current_user == @yacht.user %>
-      <%= link_to "Book now", new_booking_path(@yacht), class: "btn btn-primary" %>
+      <%= link_to "Book now", new_booking_path(@yacht), class: "btn-gradient" %>
     <% end %>
   </div>
 </div>
