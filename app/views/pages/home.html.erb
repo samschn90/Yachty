@@ -1,5 +1,12 @@
-<h1>Welcome to Yachty!</h1>
-<p>Your curated marketplace for high-end yachts</p>
-
-<%= link_to "Overview of Yachts", yachts_url %>
-<p><%= link_to "Overview of Bookings", bookings_url %></p>
+<div class="home-container">
+  <div class="container">
+    <div class="header"><h1>Welcome to Yachty!</h1></div>
+    <div class="sub-header"><p>Your curated marketplace for high-end yachts</p></div>
+    <div class="button-container">
+      <div class="buttons">
+        <%= link_to "Overview of Yachts", yachts_url, class: "btn-gradient" %>
+        <%= link_to "Overview of Bookings", bookings_url, class: "btn-gradient" %>
+      </div>
+    </div>
+  </div>
+</div>
