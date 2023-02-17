@@ -1,5 +1,5 @@
 <div class="container">
-  <h1>All Bookings</h1>
+  <h1>All bookings</h1>
     <ul>
       <% @bookings.each do |booking| %>
           <div class="card-product">
@@ -7,14 +7,12 @@
               <li>Yachtname: <%= booking.yacht.name %></li>
               <li>Begin: <%= booking.start_time %></li>
               <li>End: <%= booking.end_time %></li>
-              <li>Interested Person: <%= booking.user.id %></li>
+              <li>Interested person: <%= booking.user.first_name %></li>
             </div>
             <div>
-            <%= button_to "Accept" %>
-            <p><%= button_to "Decline" %></p>
+              <%= button_to "Accept" %>
+              <%= button_to "Decline" %>
             </div>
           </div>
   <% end %>
 </div>
-
-

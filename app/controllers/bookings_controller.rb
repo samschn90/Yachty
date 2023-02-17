@@ -46,7 +46,7 @@ class BookingsController < ApplicationController
 
   def destroy
     @booking.destroy
-    redirect_to user_path, status: :see_other
+    # redirect_to user_path
   end
 
   private
@@ -56,6 +56,6 @@ class BookingsController < ApplicationController
   end
 
   def booking_params
-    params.require(:booking).permit(:user, :yacht, :start_time, :end_time, :total_price)
+    params.require(:booking).permit(:user, :yacht, :start_time, :end_time, :total_price, :status)
   end
 end
