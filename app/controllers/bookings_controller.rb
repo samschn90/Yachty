@@ -10,13 +10,13 @@ class BookingsController < ApplicationController
   end
 
   def create
-
     @booking = Booking.new(booking_params)
     @yacht = Yacht.find(params[:yacht_id])
     @booking.yacht = @yacht
     @booking.user = current_user
     if @booking.save
-      redirect_to yacht_path(@yachts)
+      redirect_to yachts_path(@yacht)
+      flash[:message] = "Your request has been successfully submitted!"
     else
       render :new, status: :unprocessable_entity
     end
@@ -56,6 +56,6 @@ class BookingsController < ApplicationController
   end
 
   def booking_params
-    params.require(:booking).permit(:user, :yacht, :start_time, :end_time)
+    params.require(:booking).permit(:user, :yacht, :start_time, :end_time, :total_price)
   end
 end

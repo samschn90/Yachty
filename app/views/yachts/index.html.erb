@@ -1,8 +1,14 @@
-<% @yachts.each do |yacht| %>
-  <div class="card-product">
-    <%= cl_image_tag yacht.photo.key %>
-      <div class="card-product-infos">
-        <h2><%= link_to "#{yacht.title}", yacht_path(yacht) %></h2>
+<div class="container">
+  <% @yachts.each do |yacht| %>
+    <%= link_to yacht_path(yacht) do %>
+      <div class="card-product">
+        <div class="card-product-infos">
+          <h2><%= yacht.name %></h2>
+        </div>
+        <% unless yacht.photo.key == nil %>
+          <%= cl_image_tag yacht.photo.key %>
+        <% end %>
       </div>
-  </div>
-<% end %>
+    <% end %>
+  <% end %>
+</div>

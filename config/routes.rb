@@ -9,5 +9,4 @@ Rails.application.routes.draw do
   resources :yachts do
     resources :bookings
   end
-
 end
