@@ -1,10 +1,14 @@
 // Specific CSS for your home-page
 .home-container {
-  background-image: url('https://imageio.forbes.com/specials-images/imageserve/5e0926a94e291700061a0e51/The-751-foot-long-superyacht-concept-Valkyrie-underway-/0x0.jpg?format=jpg&crop=944,542,x307,y318,safe&width=960');
+  background-image: url('https://imageio.forbes.com/specials-images/imageserve/5e0926a94e291700061a0e51/The-751-foot-long-superyacht-concept-Valkyrie-underway-/0x0.jpg');
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
-  height: 600px;
+  height: 800px;
+  margin-top: 0px;
+  padding-top: 80px;
+  text-shadow: #0F084B 2px 2px;
+  color: white;
 }
 
 .container {
