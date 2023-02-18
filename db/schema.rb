@@ -79,7 +79,6 @@ ActiveRecord::Schema[7.0].define(version: 2023_02_17_212231) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.float "price"
-    t.integer "type"
     t.string "category"
     t.float "latitude"
     t.float "longitude"

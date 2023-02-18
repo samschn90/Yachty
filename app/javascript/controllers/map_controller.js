@@ -4,11 +4,12 @@ import MapboxGeocoder from "@mapbox/mapbox-gl-geocoder"
 export default class extends Controller {
   static values = {
     apiKey: String,
-    markers: Array
+    markers: Array,
+    marker: Object
   }
 
   connect() {
-    console.log(this.markersValue)
+    // console.log(this.markerValue)
     mapboxgl.accessToken = this.apiKeyValue
 
     this.map = new mapboxgl.Map({
@@ -29,7 +30,7 @@ export default class extends Controller {
 
   #addMarkersToMap() {
     this.markersValue.forEach((marker) => {
-      console.log(marker)
+      // console.log(marker)
       const popup = new mapboxgl.Popup().setHTML(marker.info_window_html)
       new mapboxgl.Marker()
         .setLngLat([ marker.longitude, marker.latitude ])
@@ -40,7 +41,7 @@ export default class extends Controller {
 
   #fitMapToMarkers() {
     const bounds = new mapboxgl.LngLatBounds()
-    this.markersValue.forEach(marker => bounds.extend([ marker.longitude, marker.latitude ]))
-    this.map.fitBounds(bounds, { padding: 70, maxZoom: 15, duration: 0 })
+    bounds.extend([ this.markerValue.longitude, this.markerValue.latitude ])
+    this.map.fitBounds(bounds, { padding: 70, zoom: 10, maxZoom: 15, duration: 0 })
   }
 }
