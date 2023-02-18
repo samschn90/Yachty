@@ -21,7 +21,7 @@
       <%= link_to "Edit yacht", edit_yacht_path, class: "btn-gradient" %>
     <% end %>
     <% unless current_user == @yacht.user %>
-      <%= link_to "Book now", new_booking_path(@yacht), class: "btn-gradient" %>
+      <%= link_to "Book now", new_yacht_booking_path(@yacht), class: "btn-gradient" %>
     <% end %>
   </div>
 </div>
