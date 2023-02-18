@@ -5,13 +5,13 @@
           <div class="card-product">
             <div class="card-product-infos">
               <li>Yachtname: <%= booking.yacht.name %></li>
-              <li>Begin: <%= booking.start_time %></li>
-              <li>End: <%= booking.end_time %></li>
+              <li>Begin: <%= booking.start_time.strftime("%d/%m/%Y")%></li>
+              <li>End: <%= booking.end_time.strftime("%d/%m/%Y")%></li>
               <li>Interested person: <%= booking.user.first_name %></li>
             </div>
             <div>
-              <%= button_to "Accept" %>
-              <%= button_to "Decline" %>
+              <p><%= button_to "Accept" %></p>
+              <p><%= button_to "Decline" %></p>
             </div>
           </div>
   <% end %>
