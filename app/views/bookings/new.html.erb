@@ -1,11 +1,15 @@
-<div class="container">
-  <h2>You are about to book the yacht: <%= @yacht.name %></h2>
+<div class="card mx-auto" style="max-width: 500px;">
+  <div class="card-body">
+  <h2>Booking the yacht: <%= @yacht.name %></h2>
     <%= simple_form_for [@yacht, @booking] do |f| %>
     <div data-controller="price-calculator" data-price-calculator-price-value = "<%= @yacht.price %>" >
       <%= f.input :start_time, label: "First day", as: :date, html5: true, input_html: { value: Date.today, min: Date.today, data: { price_calculator_target: "start" } } %>
       <%= f.input :end_time, label: "Last day", as: :date, html5: true, input_html: { value: Date.today + 1, min: Date.today + 1, data: { price_calculator_target: "end", action: "change->price-calculator#calculatePrice" } } %>
       <%= f.input :total_price, label: "Total price in €", input_html: { value: 0, disabled: true, data: { price_calculator_target: "total" } } %>
-      <%= f.submit "Submit", class: "btn-gradient"%>
+      <div class="card-body text-center">
+      <%= f.submit "Submit", class: "btn btn-gradient"%>
+      </div>
     </div>
     <% end %>
+    </div>
 </div>
