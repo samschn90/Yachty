@@ -1,14 +1,21 @@
-<%= simple_form_for @yacht do |f| %>
-  <%= f.input :title %>
-  <%= f.input :name %>
-  <%= f.input :length %>
-  <%= f.input :category, :collection => ["Sailyacht", "Motoryacht", "Hybridyacht", "Flyingyacht", "Other"] %>
-  <%= f.input :description %>
-  <%= f.input :price %>
-  <%= f.input :address,
-    input_html: {data: {address_autocomplete_target: "address"}, class: "d-none"},
-    wrapper_html: {data: {controller: "address-autocomplete", address_autocomplete_api_key_value: ENV["MAPBOX_API_KEY"]}}
-  %>
-  <%= f.input :photo, as: :file %>
-  <%= f.submit %>
-<% end %>
+<div class="card mx-auto" style="max-width: 500px;">
+  <div class="card-body">
+    <h1>Edit listing</h1>
+    <%= simple_form_for @yacht do |f| %>
+      <%= f.input :title %>
+      <%= f.input :name %>
+      <%= f.input :length %>
+      <%= f.input :category, :collection => ["Sailyacht", "Motoryacht", "Hybridyacht", "Flyingyacht", "Other"] %>
+      <%= f.input :description %>
+      <%= f.input :price %>
+      <%= f.input :address,
+        input_html: {data: {address_autocomplete_target: "address"}, class: "d-none"},
+        wrapper_html: {data: {controller: "address-autocomplete", address_autocomplete_api_key_value: ENV["MAPBOX_API_KEY"]}}
+      %>
+      <%= f.input :photo, as: :file %>
+      <div class="card-body text-center">
+        <%= f.submit "Edit", class: "btn btn-gradient" %>
+      </div>
+    <% end %>
+  </div>
+</div>
