@@ -1,20 +1,31 @@
 <div class="container">
-    <h1>All bookings</h1>
+  <h1>All bookings</h1>
     <ul>
-    <% @bookings.each do |booking| %>
-        <li>Yachtname: <%= booking.yacht.name %></li>
-        <li>Begin: <%= booking.start_time.strftime("%d/%m/%Y")%></li>
-        <li>End: <%= booking.end_time.strftime("%d/%m/%Y")%></li>
-        <li>Interested person: <%= booking.user.first_name %></li>
-      <div class="card-body text-center">
-        <%= button_to "Accept"%>
+      <div class="row justify-content-center">
+        <div class="col-8">
+        <% @bookings.each do |booking| %>
+          <div class="card">
+            <div class="row justify-content-center">
+              <div class="w-50">
+                <div class="card-description">
+                  <li>Yachtname: <%= booking.yacht.name %></li>
+                  <li>Begin: <%= booking.start_time.strftime("%d/%m/%Y")%></li>
+                  <li>End: <%= booking.end_time.strftime("%d/%m/%Y")%></li>
+                  <li>Interested person: <%= booking.user.first_name %></li>
+                </div>
+              </div>
+              <div class="w-50">
+                <input class="form-check-input" type="radio" name="Accept">
+                <p>Accept</p>
+                <input class="form-check-input" type="radio" name="Decline">
+                <p>Decline</p
+              </div>
+              </div>
+              <button class="btn-gradient">Submit</button>
+            </div>
+          </div>
+        <% end %>
       </div>
-      <div class="card-body text-center">
-      <%= button_to "Decline"%>
-      </div>
-      </div>
-      <% end %>
-      </ul>
     </div>
-
+  </ul>
 </div>
