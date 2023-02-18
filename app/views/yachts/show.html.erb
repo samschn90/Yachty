@@ -11,7 +11,7 @@
       <li class="list-group-item"><strong>Price:</strong> <%= @yacht.price %> €</li>
       <li class="list-group-item"><strong>Category:</strong> <%= @yacht.category %></li>
     </ul>
-    <div style="height: 300px;"
+    <div class="card-map"
       data-controller="map"
       data-map-marker-value="<%= @yacht.to_json %>"
       data-map-markers-value="<%= @yachts.to_json %>"

@@ -50,8 +50,8 @@ ActiveRecord::Schema[7.0].define(version: 2023_02_17_212231) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.integer "availability", default: 0
-    t.integer "totalPrice"
-    t.integer "status", default: 0
+    t.integer "total_price"
+    t.integer "status"
     t.index ["user_id"], name: "index_bookings_on_user_id"
     t.index ["yacht_id"], name: "index_bookings_on_yacht_id"
   end
