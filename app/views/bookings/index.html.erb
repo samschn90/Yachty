@@ -9,10 +9,9 @@
               <li>End: <%= booking.end_time.strftime("%d/%m/%Y")%></li>
               <li>Interested person: <%= booking.user.first_name %></li>
             </div>
-            <div>
-              <p><%= button_to "Accept" %></p>
-              <p><%= button_to "Decline" %></p>
+              <%= button_to "Accept", class: "btn-gradient"%>
+              <%= button_to "Decline", class: "btn-gradient" %>
             </div>
-          </div>
-  <% end %>
+      <% end %>
+  </ul>
 </div>
