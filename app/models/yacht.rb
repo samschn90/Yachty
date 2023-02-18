@@ -1,5 +1,5 @@
 class Yacht < ApplicationRecord
-  has_many :bookings
+  has_many :bookings, through: :user
 
   def available?(start_time, end_time)
     bookings.where("start_time <= ? AND end_time >= ?", end_time, start_time).empty?

@@ -14,7 +14,7 @@ Yacht.destroy_all
 Booking.destroy_all
 
 i = 0
-10.times do
+5.times do
   puts "Creating user #{i}"
   user = User.new(
     email: "#{i}@gmail.com",
@@ -27,7 +27,7 @@ i = 0
   yacht = Yacht.create(
     name: Faker::Music.mambo_no_5,
     length: Faker::Number.within(range: 2..30), description: Faker::Quote.robin,
-    price: Faker::Number.within(range: 50..5000000),
+    price: Faker::Number.within(range: 0..500),
     user: user
   )
   yacht.save!
